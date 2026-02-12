@@ -8,7 +8,18 @@
 
 ## Critical Rules for AI Agents
 
-### 1. Never Block I/O with Dev Servers
+### 1. Mobile-First Design (TOP PRIORITY)
+**ALWAYS** ensure the site is mobile-friendly:
+- Use Tailwind responsive classes: `sm:`, `md:`, `lg:`, `xl:`
+- Test layouts work on mobile (320px+), tablet (768px+), desktop (1024px+)
+- Use responsive grid: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
+- Ensure touch targets are at least 44x44px
+- Make charts responsive with `useResizeHandler` and `autosize: true`
+- Use `max-w-6xl mx-auto px-6` for content containers
+- Stack elements vertically on mobile, horizontally on desktop
+- Test navigation works on mobile (consider hamburger menu if needed)
+
+### 2. Never Block I/O with Dev Servers
 **NEVER** run `npm run dev`, `vite`, or any long-running server process in foreground.
 
 **Correct approaches:**
@@ -121,12 +132,14 @@ When encountering version conflicts:
 
 ## Testing Checklist
 Before marking work complete:
+- [ ] **Mobile responsive (320px, 768px, 1024px viewports)**
+- [ ] **Touch targets are adequate size**
+- [ ] **Charts resize properly on mobile**
 - [ ] Dev server starts without errors
 - [ ] Page loads at http://localhost:5173
 - [ ] No console errors in browser
 - [ ] Tailwind styles applied
 - [ ] Charts render and are interactive
-- [ ] Responsive on mobile
 - [ ] All links work
 
 ## Next Steps for This Project
